@@ -1,0 +1,557 @@
+header {
+    width: 100%;
+    position: relative;
+}
+
+.marquee {
+    width: 100%;
+    background: #ffebcd;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 12px;
+    color: #7b1fa2;
+    font-weight: 700;
+    padding: 5px 0px;
+}
+
+.marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: slide 25s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee p:hover {
+    animation-play-state: paused;
+}
+
+header,
+.sticky {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    background: white !important;
+    z-index: 99999 !important;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo img {
+    width: 70px;
+
+}
+
+.mobiletoggle i {
+    display: none;
+    font-size: 34px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.mobiletoggle1 i {
+    display: none;
+    font-size: 24px;
+}
+
+.search i {
+    position: relative;
+    left: 30px;
+    margin-top: 7px;
+}
+
+.search input {
+    width: 600px;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(238, 238, 238);
+}
+
+.search input:focus {
+    outline-color: #65d437;
+    border-style: unset;
+}
+
+.search button {
+    padding: 6px 15px;
+    background-color: #3b8d39;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    position: relative;
+    right: 5.2rem;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.search button:hover {
+    color: #3a8d39c9;
+    background-color: #fff;
+}
+
+.search button:focus {
+    outline-color: #3a8d39c9;
+}
+
+.location {
+    margin-left: 10px;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    50% {
+        transform: translateX(8px);
+    }
+
+    75% {
+        transform: translateX(-6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.locaname {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 12px;
+    animation: shake 0.9s ease-in-out infinite;
+}
+
+.locaname a,
+.locaname i {
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.locaname:hover a,
+.locaname:hover i {
+    color: #65d437;
+    transition: all 0.2s ease-in-out;
+}
+
+.login {
+    margin-left: 10px;
+}
+
+.log {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.log::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.6) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    animation: shine-effect 3s linear infinite;
+}
+
+@keyframes shine-effect {
+    0% {
+        left: -75%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+.log:hover a,
+.log:hover i {
+    color: #65d437;
+    transition: all 0.3s ease-in-out;
+}
+
+.log a,
+.log i {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.count {
+    font-size: 2rem;
+    position: relative;
+    margin-top: 6px;
+}
+
+.count a {
+    text-decoration: none;
+    color: rgb(253, 215, 145);
+}
+
+.count span {
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    background-color: rgb(238, 238, 238);
+    color: #000;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0px 4px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.count i:hover {
+    color: #65d437;
+    transition: all 0.2s ease-in-out;
+}
+
+.secnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.layer1 {
+    content: "";
+    background-image: radial-gradient(at 40% 20%,
+            rgb(255, 184, 122) 0px,
+            transparent 50%),
+        radial-gradient(at 80% 0%, rgb(31, 221, 255) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, rgb(255, 219, 222) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, rgb(255, 133, 173) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgb(255, 181, 138) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, rgb(107, 102, 255) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, rgb(255, 133, 167) 0px, transparent 50%);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    z-index: -9;
+}
+
+.menubar {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.menubar ul li {
+    list-style-type: none;
+    display: inline;
+    margin: 0px 12px;
+}
+
+.menubar ul li a {
+    text-decoration: none;
+    color: #0B0C10;
+    font-size: 14px;
+    font-weight: 550;
+
+}
+
+.menubar ul li:hover a {
+    color: #65d437;
+    transition: all 0.3s ease-in-out;
+}
+
+.supermenu {
+    position: relative;
+}
+
+.supermenu i {
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+
+.submenu {
+    position: absolute;
+    left: -45px;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #0b0c10bc;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(10px);
+    z-index: 9;
+
+}
+
+.supermenu:hover .submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+
+}
+
+.submenu li a {
+    display: block;
+    padding: 0px 0px 0px 10px;
+    width: 150px;
+    color: #fff !important;
+}
+
+.submenu li a:hover {
+    color: #65d437 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+
+@media (min-width:320px) and (max-width:480px) {
+    .marquee p {
+        animation: slide 15s linear infinite;
+        padding-left: 50%;
+
+    }
+
+    .marquee {
+        width: 100%;
+        font-size: 12px;
+        padding: 6px 0px;
+    }
+
+    .secnav {
+        display: block;
+        padding-top: 5px;
+    }
+
+    .logo {
+        display: block;
+        text-align: center;
+
+    }
+
+    .logo img {
+        width: 45px;
+        position: relative;
+        z-index: 20;
+    }
+
+    .mobiletoggle i {
+        display: block;
+        font-size: 30px;
+        position: absolute;
+        top: 16px;
+        left: 5px;
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    .mobiletoggle1 i {
+        display: block;
+        position: absolute;
+        top: 16px;
+        left: 240px;
+    }
+
+    .search {
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: -100%;
+        transition: all 0.3s ease-in-out;
+        z-index: 21;
+    }
+
+
+    .search.open {
+        top: 20px;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(6px);
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 20;
+    }
+
+    .search input {
+        width: 320px;
+        display: block;
+        font-size: 10px;
+
+    }
+
+    .search button {
+        display: block;
+        position: relative;
+        margin-left: 330px;
+        top: -30px;
+        font-size: 10px;
+        padding: 6px 16px;
+    }
+
+    .search .searchi i {
+        top: 31px;
+        margin-left: -14px;
+
+    }
+
+    .login {
+        display: block;
+        display: relative;
+    }
+
+    .log {
+        position: absolute;
+        top: 12px;
+        left: 30px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .location,
+    .login {
+        text-align: center;
+    }
+
+    .locaname {
+        font-size: 12px;
+        margin-right: 10px;
+        position: relative;
+    }
+
+    .cart {
+        display: block;
+        position: relative;
+    }
+
+    .count {
+        font-size: 1.6rem;
+        position: absolute;
+        margin-left: 280px;
+        bottom: 43px;
+    }
+
+    .count span {
+        font-size: 10px;
+        right: 0px;
+        top: 1;
+        padding: 1px 3px;
+    }
+
+    .layer1 {
+        top: 55px;
+    }
+
+    .menubar ul {
+        width: 100%;
+    }
+
+    .menubar ul li {
+        display: block;
+        padding: 10px 10px;
+        border-radius: 10px;
+    }
+
+    .menubar ul li a {
+        font-size: 16px;
+    }
+
+    .menubar ul li:hover {
+        background-color: #65d437;
+    }
+
+    .menubar ul li:hover a {
+        color: #000;
+    }
+
+    .menubar {
+        position: absolute;
+        top: 15%;
+        left: -100%;
+        width: 100%;
+        transition: all 0.4s ease-in-out;
+        z-index: 30;
+    }
+
+    .menubar.open {
+        left: -0%;
+    }
+
+    .supermenu .submenu {
+        padding: 6px 0px;
+    }
+
+    .submenu {
+        left: 0;
+        top: 130px;
+        background-color: #0b0c101f;
+    }
+
+    .submenu li a {
+        color: #000 !important;
+    }
+
+    .submenu li a:hover {
+        color: #000 !important;
+    }
+
+    .overlay1 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255);
+        z-index: 11;
+    }
+
+    .lastnav {
+        display: block;
+        position: relative;
+        top: 10px;
+    }
+}

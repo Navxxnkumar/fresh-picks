@@ -1,0 +1,236 @@
+.loginsection {
+    overflow: hidden;
+}
+
+.loginmain {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.loginpage {
+    flex: 1 1 0;
+    padding: 2rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    max-width: 55%;
+}
+
+.logimg {
+    margin-bottom: 22px;
+    cursor: pointer;
+}
+
+.logimg img {
+    max-width: 150px;
+    height: auto;
+    color: transparent;
+    object-fit: contain;
+}
+
+.forms h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.forms h2 {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    color: grey;
+    font-size: 1rem;
+}
+
+.loginin {
+    display: flex;
+    width: 100%;
+}
+
+.loginin span {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #212529;
+    background-color: bisque;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.loginin input {
+    border: 1px solid #dee2e6;
+    width: 100%;
+    padding: 16px 12px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgba(79, 173, 33, 0.07);
+    transition: all 0.3s ease-in-out;
+    /* outline: none; */
+}
+
+.loginin input[type=tel] {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.loginin input[type=tel]::placeholder {
+    color: #000000e7;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.loginin input:focus {
+    border-color: rgb(79, 173, 33);
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset, rgba(79, 173, 33, 0.6) 0px 0px 8px;
+    outline: none 0px;
+}
+
+.forms button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    color: #050505;
+    background-color: rgb(79, 173, 33);
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.forms button:hover {
+    background-color: #66d43787;
+}
+
+.terms {
+    margin: 1.5rem 0px;
+}
+
+.terms p {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.terms p a {
+    color: rgb(240, 94, 37);
+}
+
+.logback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logback a {
+    text-decoration: none;
+}
+
+.logback .backbtn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 1000px;
+    background-color: #f0f0f0;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 24px 50px;
+    border: 1px solid rgb(224, 224, 224);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logback .backbtn i {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.logback .backbtn:hover {
+    transform: translateY(-3px);
+    background-color: #fff;
+}
+
+.loginpage2 {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginimg {
+    height: 100vh;
+}
+
+.loginimg img {
+    width: 100%;
+    height: 100%;
+}
+
+.loginnum .error {
+    color: red;
+    font-size: 14px;
+    max-height: 28px;
+    line-height: 1;
+    visibility: hidden;
+    margin-bottom: 2.8rem;
+    margin-top: 8px;
+}
+
+.error.show {
+    visibility: visible;
+}
+
+@media(min-width:320px) and (max-width:480px) {
+    .loginmain {
+        width: 100%;
+        height: inherit;
+        display: block;
+    }
+
+    .loginpage {
+        display: block;
+    }
+
+    .forms {
+        width: 100%;
+        display: block;
+        max-width: inherit;
+    }
+
+    .logimg {
+        margin-top: 3rem;
+    }
+
+    .logimg img {
+        max-width: 80px;
+    }
+
+    .forms h1 {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .forms h2 {
+        font-size: 12px;
+        font-weight: 550;
+    }
+
+    .loginpage2 {
+        display: none;
+    }
+
+    .loginnum .error {
+        font-size: 12px;
+    }
+}
