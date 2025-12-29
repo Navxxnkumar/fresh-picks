@@ -3,11 +3,15 @@ const cors = require("cors");
 const { default: mongoose } = require("mongoose");
 const dbschema = require("./freshdb/db");
 const PORT = 8880;
+require('dotenv').config();
 
 // database
-mongoose.connect("mongodb://localhost:27017/freshpicks")
-    .then(() => console.log("Database connected successfully...!"))
-    .catch((err) => { console.error(err) });
+mongoose.connect(process.env.mongolocaldb, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+    .then(() => console.log("Mongo Database connected successfully...!"))
+    .catch((err) => { if (err) throw err; });
 
 // frontend
 const app = express();
@@ -15,7 +19,7 @@ app.use(express.json());
 app.use(cors());
 
 // backend 
-app.get("/", async (req, res) => { 
+app.get("/", async (req, res) => {
     // res.send("Server is Ready...!");
     // res.end();
     try {
