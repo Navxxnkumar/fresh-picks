@@ -1,17 +1,18 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const { default: mongoose } = require("mongoose");
 const dbschema = require("./freshdb/db");
 const PORT = 8880;
-require('dotenv').config();
+
 
 // database
-mongoose.connect(process.env.mongolocaldb, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.mongolocaldb)
     .then(() => console.log("Mongo Database connected successfully...!"))
-    .catch((err) => { if (err) throw err; });
+    .catch(err => {
+        console.error("Mongo connection error:", err);
+    });
+
 
 // frontend
 const app = express();

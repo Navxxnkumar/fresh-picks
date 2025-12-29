@@ -41,22 +41,41 @@ export const Contact = () => {
         return Object.keys(fixerr).length === 0;
     }
 
+    // const handlesumbit = async (e) => {
+    //     e.preventDefault();
+    //     if (validation()) {
+    //         console.log(uform);
+    //         alert("Your Message send successfully...!")
+    //         setUform({ uname: "", uemail: "", umobile: "", umobiles: "", ufeed: "" });
+    //         setErr({});
+    //     }
+    //     try {
+    //         await axios.post(process.env.REACT_APP_BACKEND_URL, uform);
+
+    //     }
+    //     catch (err) {
+    //         if (err) throw err;
+    //         alert("Data not send to Backend..!");
+    //     }
+    // }
     const handlesumbit = async (e) => {
         e.preventDefault();
-        if (validation()) {
-            console.log(uform);
-            alert("Your Message send successfully...!")
+
+        if (!validation()) return console.log(uform);
+
+        try {
+            await axios.post(
+                process.env.REACT_APP_BACKEND_URL,
+                uform
+            );
+
+            alert("Your Message sent successfully...!");
             setUform({ uname: "", uemail: "", umobile: "", umobiles: "", ufeed: "" });
             setErr({});
+        } catch (err) {
+            alert("Data not sent to Backend..!");
         }
-        try {
-            await axios.post("http://localhost:8880/json", uform);
-        }
-        catch (err) {
-            if (err) throw err;
-            alert("Data not send to Backend..!");
-        }
-    }
+    };
 
     return (
         <section className='contactsection'>
@@ -125,8 +144,8 @@ export const Contact = () => {
             <div className="contactform">
                 <div className="m-form">
                     <div className="mapform">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.9056417304655!2d80.22325137483915!3d12.84937068745489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52678b6ec7b719%3A0xc0cf6f565e5669c7!2sSLA%20Institute!5e0!3m2!1sen!2sin!4v1764349137939!5m2!1sen!2sin"
-                            width="600" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.9056417304655!2d80.22325137483915!3d12.84937068745489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52678b6ec7b719%3A0xc0cf6f565e5669c7!2sSLA%20Institute!5e0!3m2!1sen!2sin!4v1764349137939!5m2!1sen!2sin" */}
+                        {/* width="600" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
                     </div>
                 </div>
                 <div className="u-form">
