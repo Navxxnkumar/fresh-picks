@@ -1,34 +1,28 @@
 require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 const dbschema = require("./freshdb/db");
-const PORT = 8880;
 
+const PORT = process.env.PORT || 8880;
 
 // database
 mongoose.connect(process.env.mongolocaldb)
     .then(() => console.log("Mongo Database connected successfully...!"))
-    .catch(err => {
-        console.error("Mongo connection error:", err);
-    });
+    .catch(err => console.error("Mongo connection error:", err));
 
-
-// frontend
+// app
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// backend 
+// routes
 app.get("/", async (req, res) => {
-    // res.send("Server is Ready...!");
-    // res.end();
     try {
         const data = await dbschema.find();
         res.json(data);
-    }
-    catch (err) {
-        res.status(505).json({ Error: "Server Error...!" });
+    } catch {
+        res.status(500).json({ Error: "Server Error...!" });
     }
 });
 
@@ -36,20 +30,17 @@ app.post("/json", async (req, res) => {
     try {
         const { uname, uemail, umobile, umobiles, ufeed } = req.body;
         if (!uname || !uemail || !umobile || !umobiles || !ufeed) {
-            return res.status(404).json({ Error: "Plz fill all the data..!" })
+            return res.status(400).json({ Error: "Please fill all data" });
         }
         const datas = new dbschema({ uname, uemail, umobile, umobiles, ufeed });
         await datas.save();
-        return res.status(202).json({ Message: "Data successfully stored in database..!" });
-    }
-    catch (err) {
-        if (err) throw err;
-        return res.status(505).json({ Error: "Check backend connectivity..!" })
+        res.status(201).json({ Message: "Data stored successfully" });
+    } catch {
+        res.status(500).json({ Error: "Backend error" });
     }
 });
 
-// deployment
-app.listen(PORT, (err) => {
-    if (err) throw err;
-    console.log(`Server successfully running on port ${PORT}...!`);
+// listen
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
