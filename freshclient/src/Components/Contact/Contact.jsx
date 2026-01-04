@@ -4,12 +4,14 @@ import './Contact.css';
 import { Breadcums } from '../Common/Breadcums';
 import axios from 'axios';
 
-// import { Contactinfo } from './Contactinfo';
+import { Contactinfo } from './Contactinfo';
 
 
 export const Contact = () => {
 
     const [uform, setUform] = useState({ uname: "", uemail: "", umobile: "", umobiles: "", ufeed: "" });
+
+    const [msg, setMsg] = useState({ text: "", type: "" });
 
     const [err, setErr] = useState({});
 
@@ -45,17 +47,27 @@ export const Contact = () => {
         e.preventDefault();
         if (validation()) {
             console.log(uform);
-            alert("Your Message send successfully...!")
-            setUform({ uname: "", uemail: "", umobile: "", umobiles: "", ufeed: "" });
-            setErr({});
+
+
         }
         try {
             await axios.post(process.env.REACT_APP_BACKEND_URL, uform);
 
+            setMsg({
+                text: "Your message has been sent successfully!",
+                type: "Success"
+            })
+
+            setUform({ uname: "", uemail: "", umobile: "", umobiles: "", ufeed: "" });
+            setErr({});
+
         }
         catch (err) {
             if (err) throw err;
-            alert("Data not send to Backend..!");
+            setMsg({
+                text: "Message not sent. Please try again later!",
+                type: "Error"
+            })
         }
     }
     // const handlesumbit = async (e) => {
@@ -187,12 +199,23 @@ export const Contact = () => {
                                 <p className={`error ${err.ufeed ? "show" : " "}`}>{err.ufeed}</p>
 
                                 <button type='submit'>Send Message</button>
+
+                                {msg.text && (
+
+                                    <div className='form-msg-main'>
+                                        <div className='msg'>
+                                            <div className={`form-msg ${msg.type}`}>
+                                                <i className={`bx ${msg.type === "Success" ? "bx-check-circle" : "bx-cross-circle"}`}></i> {msg.text}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <Contactinfo /> */}
+            <Contactinfo />
         </section>
     )
 }

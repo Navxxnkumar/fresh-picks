@@ -187,6 +187,38 @@
     visibility: visible;
 }
 
+.msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-msg {
+    margin-top: 1rem;
+    margin-right: 100px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-msg.Success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 2px solid #0aba33;
+}
+
+.form-msg.Error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 2px solid #e4061c;
+
+}
+
 @media (min-width:320px) and (max-width:480px) {
     .mainsupport {
         display: block;

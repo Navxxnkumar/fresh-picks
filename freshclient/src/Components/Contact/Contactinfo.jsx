@@ -15,7 +15,7 @@ export const Contactinfo = () => {
     return (
         <div>
             {
-                fetchuser.map((user) =>
+                fetchuser.map((user) =>(
                     <div>
                         <p>Username: <b>{user.uname}</b></p>
                         <p>Useremail: <b>{user.uemail}</b></p>
@@ -23,7 +23,7 @@ export const Contactinfo = () => {
                         <p>Userwhatsno: <b>{user.umobiles}</b></p>
                         <p>Userfeedback: <b>{user.ufeed}</b></p>
                     </div>
-                )
+                ))
             }
         </div>
     )
